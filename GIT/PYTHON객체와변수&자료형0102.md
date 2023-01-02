@@ -1,0 +1,433 @@
+# 0102 MON
+
+## 🥸 컴퓨터 프로그래밍 언어 
+
+### @ 정의
+
+- 컴퓨터 = calculation (조작) + remember (저장)
+
+- 프로그래밍 = 명령어의 모음 (집합)
+
+- 언어 = 생각을 나타내고 전달하기 위해 사용하는 체계 / 문법적으로 맞는 말의 집합
+
+- 컴퓨터 프로그래밍 언어 = 컴퓨터에게 명령하기 위한 약속
+
+- 선언적 지식 (declarative knowledge) ; 사실에 대한 내용 vs **명령적 지식 (imperative knowledge) ; How-to**
+
+## 😏 파이썬 
+
+### @ 특징 
+
+- Easy to learn ; 문법이 간단하고 엄격하지 X
+
+- 문법 표현이 간결
+
+- Expressive Language ; C나 자바보다 더 간결하게 작성 가능
+
+- 크로스 플랫폼 언어 ; 다양한 운영체제에서 실행 가능
+
+- 인터프리터 언어 (Interpreter)
+
+  - 소스코드를 기계어로 변환하는 컴파일 과정 없이 바로 실행 가능
+
+  - 코드를 대화하듯 한 줄 입력하고 실행한 후 바로 확인 가능
+
+- 객체 지향 프로그래밍 (Object Oriented Programming)
+
+  - 모든 것이 객체로 구현 (객체 ; 숫자, 문자, 클래스 등 값을 가지고 있는 모든 것)
+
+## 😛 객체와 변수 
+
+![객체와 변수](https://user-images.githubusercontent.com/121418205/210188890-4d16099c-46d7-49dd-be90-35e00118335e.jpg)
+
+### @ 변수
+
+- 객체를 참조하기 위해 사용되는 이름
+
+- 동일 이름에 다른 객체를 언제든 할당할 수 있음
+
+- 할당연산자(=) 통해 값을 할당(assignment)
+
+- type() ; 변수에 할당된 값의 타입
+
+- id() ; 변수에 할당된 값(객체)의 고유한 아이덴티티 값, 메모리주소
+
+### @ 변수 할당
+
+- 같은 값을 동시에 할당할 수 있음 (ex. x = y = 1004)
+
+- 다른 값을 동시에 할당할 수 있음 (multiple assignment)(ex. x, y = 1, 2)
+
+### @ 실습문제 
+
+- x= 10 y = 20일 때, 각각 값을 바꿔서 저장하는 코드
+
+1) 임시 변수 활용
+
+  ```python
+  tmp = x
+  x = y
+  y = tmp
+  print(x, y)
+  ```
+
+2) Pythonic
+
+  ```python
+  y, x = x, y
+  print(x, y)
+  ```
+
+### @ 식별자
+
+- 파이썬 객체를 식별하는데 사용하는 이름
+
+- 규칙
+
+  - 식별자의 이름은 영문 알파벳, 언더스코어(_), 숫자로 구성
+
+  - 첫 글자에 숫자 X
+
+  - 길이제한 X
+
+  - 대소문자 구별
+
+  - 키워드는 예약어로 사용 X
+
+    ![키워드 : 예약어](https://user-images.githubusercontent.com/121418205/210189207-9684225f-02ca-46b3-bef6-6c212db3a153.jpg)
+
+  - 내장함수나 모듈 등의 이름으로 만들면 X
+
+## 🥲 자료형 (Data Type)
+
+- 객체의 종류
+
+- 자료형 분류
+
+  ![자료형 분류](https://user-images.githubusercontent.com/121418205/210189720-fb2df83f-9b6d-4740-9352-eae861a42006.jpg)
+
+## 😀 수치형 (Numeric Type)
+
+### @ 정수 (Int)
+
+- 모든 정수의 타입은 int
+
+- 매우 큰 수를 나타낼 때 오버플로우 발생 X
+
+### @ 실수 (Float)
+
+- 정수가 아닌 모든 실수는 float 타입
+
+- 부동소수점
+
+  - 실수를 컴퓨터가 표현하는 방법 ; 2진수(비트)로 숫자를 표현
+
+- Float point rounding error ; 부동소수점에서 실수 연산 과정에서 발생 가능
+
+  - 값 비교하는 과정에서 정수가 아닌 실수인 경우 주의
+
+    ```python
+    # 참일까? 거짓일까?
+    3.14 - 3.02 == 0.12
+    # 0.1200000000001로 나옴
+    ```
+
+  - 매우 작은 수보다 작은지를 확인하거나 math 모듈 활용
+
+    ```python
+    # 1. 임의의 작은 수
+    abs(a - b) <= 1e - 10
+    # 2. math 모듈 활용
+    import math
+    math.isclose(a,b)
+    ```
+
+### @ 복소수 (Complex)
+
+- 실수부와 허수부로 구성된 복소수는 모두 Complex 타입 ; 허수부를 j로 표현
+
+## 🤯 불린형 (Boolean Type)
+
+### @ 불린
+
+- True / False 값을 가진 타입은 bool
+
+  - True는 1, False는 0에 해당
+
+- 비교/논리 연산을 수행함에 있어서 활용됨
+
+- *0, 0.0, (), [], {}* 은 모두 False로 변환
+
+## 😗 연산자 (Operator)
+
+### @ 산술 연산자 (Arithmetic Operator)
+
+- 기본적인 사칙연산 및 수식 계산
+
+  ![산술연산자](https://user-images.githubusercontent.com/121418205/210190057-ee89faca-7488-4805-9b20-5ccfcc3efbb6.jpg)
+
+### @ 비교 연산자 (Comparison Operator)
+
+- 값을 비교하며, True / False 값을 리턴
+
+  ![비교연산자](https://user-images.githubusercontent.com/121418205/210190103-67185034-568b-445f-ab2e-96a9982ca734.jpg)
+
+### @ 논리 연산자 (Logical Operator)
+
+- 논리식을 판단하여 True / False 값을 리턴
+
+  ![논리연산자](https://user-images.githubusercontent.com/121418205/210190147-706ff598-655e-46fe-82cf-553887428c8c.jpg)
+
+- and : 모두 참인 경우 참, 그렇지 않으면 거짓
+
+- or : 둘 중 하나만 참이라도 참, 둘 다 거짓일 때 거짓
+
+- not : 참 거짓의 반대의 결과
+
+### @ 연산자 예제
+
+```python
+num = 100
+num >= 100 and num % 3 ==1
+# True 반환
+```
+
+## 🤓 컨테이너 (Container)
+
+### 컨테이너 분류
+
+- 시퀀스 (모두 각각의 서로 다른 Type이다!)
+
+  - 문자열 (immutable) ; 문자들의 나열
+
+  - 리스트 (mutable) ; 변경 가능한 값들의 나열
+
+  - 튜플 (immutable) ; 변경 불가능한 값들의 나열
+
+  - 레인지 (immutable) ; 숫자의 나열
+
+- 컬렉션 / 비시퀀스
+
+  - 세트 (mutable) ; 유일한 값들의 모음
+
+  - 딕셔너리 (mutable) ; 키-값들의 모음
+
+## 😶‍🌫️ 시퀀스형 컨테이너 (Sequence Container)
+
+- 시퀀스형 주요 공통 연산자
+
+  ![시퀀스형주요공통연산자](https://user-images.githubusercontent.com/121418205/210191133-1cf80385-a274-4955-9202-b747a28940be.jpg)
+
+## 😫 문자열 (String Type)
+
+### @ 문자열
+
+- 모든 문자는 str 타입
+
+- 문자열은 작은 따옴표(')나 큰 따옴표(")를 활용하여 표기
+
+  - 문자열을 묶을 때 동일한 문장부호 활용
+
+  - PEP8에서는 소스코드 내에서 하나의 문장부호를 선택하여 유지하도록 함
+
+### @ 중첩따옴표 (Nested Quotes)
+
+- 따옴표 안에 따옴표를 표현할 경우
+
+  - 작은 따옴표가 들어 있는 경우는 큰 따옴표로 문자열 생성
+
+  - 큰 따옴표가 들어 있는 경우는 작은 따옴표로 문자열 생성
+
+    ```python
+    print("문자열 안에 '작은 따옴표'를 사용하려면 큰 따옴표로 묶기")
+    print('문자열 안에 "큰 따옴표"를 사용하려면 작은 따옴표로 묶기')
+    ```
+
+### @ 삼중따옴표 (Triple Quotes)
+
+- 작은 따옴표나 큰 따옴표를 삼중으로 사용
+
+  - 따옴표 안에 따옴표를 넣을 때
+
+  - 여러 줄을 나눠 입력할 때 편리
+
+    ```python
+    print('''문자열 안에 '작은 따옴표'나
+    "큰 따옴표"를 사용할 수 있고
+    여러 줄을 사용할 때도 편리''')
+    ```
+
+![인덱싱](https://user-images.githubusercontent.com/121418205/210191425-7bef08bc-11e8-41c7-9eaf-c5cfccbbff30.jpg)
+
+### @ 인덱싱
+
+- 인덱스를 통해 특정 값에 접근 가능
+
+- 위의 표에서 s[1] -> 'b'
+
+### @ 슬라이싱
+
+- 위의 표에서 s[2:5] -> 'c d e'
+
+- 위의 표에서 s[2:5:2] -> 'c e' (스텝 ; 2씩 점프)
+
+### @ 기타
+
+- 결합 (Concatenation)
+
+  ```python
+  'hello, '+'python!'
+  # 'hello, python!'
+  3+5
+  # 8
+  '3'+'5'
+  # 35
+  ```
+
+- 반복 (Repetition)
+
+  ```python
+  'hi!'*3
+  # 'hi!hi!hi!'
+  ```
+
+- 포함 (Membership)
+
+  ```python
+  'a' in 'apple'
+  # True
+  'app' in 'apple'
+  # True
+  'b' in 'apple'
+  # False
+  ```
+
+### @ Escape Sequence
+
+- 문자열 내에서 특정 문자나 조작을 위해서 역슬래시( \ )를 활용하여 구분
+
+  ![EscapeSequence](https://user-images.githubusercontent.com/121418205/210191805-ae66ead7-85e5-4ef4-8806-ae2aaf39a55f.jpg)
+
+  ```python
+  print('철수 \'안녕\'')
+  # 철수 '안녕'
+  print('이 다음은 엔터. \n그리고 탭\t탭')
+  # 이 다음은 엔터.
+  # 그리고 탭   탭
+  ```
+
+### @ 문자열 특징
+
+- Immutable : 변경 불가능
+
+  ```python
+  a = 'my string?'
+  a[-1] = '!'
+  # 이런 식으로 문자열을 변경하려고 하면 TypeError 뜸
+  ```
+
+- Iterable : 반복 가능함
+
+  ```python
+  a = '123'
+  for char in a:
+    print(char)
+  ```
+
+## 🫢 리스트 (List)
+
+### @ 정의
+
+- 변경 가능한 값들의 나열된 자료형
+
+- 순서를 가지며, 서로 다른 타입의 요소를 가질 수 있음
+
+- 변경 가능 (mutable) 반복 가능 (iterable)
+
+- 항상 **대괄호** 형태로 정의
+
+- 요소는 콤마로 구분
+
+### @ 생성과 접근
+
+- 대괄호([]) 혹은 list()를 통해 생성
+
+- 순서가 있는 시퀀스로 인덱스를 통해 접근 가능
+
+  - 값에 대한 접근은 list [i]
+
+### @ 리스트 생성
+
+```python
+my_list = []
+another_list = list()
+type(my_list)
+# <class 'list'>
+type(another_list)
+# <class 'list'>
+```
+
+### @ 리스트 접근과 변경
+
+```python
+# 값 접근
+a = [1, 2, 3]
+print(a[0])
+# 1
+
+# 값 변경
+a[0] = '1'
+print(a)
+# ['1', 2, 3]
+```
+
+### @ 리스트 값 추가 / 삭제
+
+- 값 추가는 .append()를 활용하여 추가하고자 하는 값 전달
+
+  ```python
+  even_numbers = [2, 4, 6, 8]
+  even_numbers.append[10]
+  even_numbers
+  # [2, 4, 6, 8, 10]
+    ```
+
+- 값 삭제는 .pop()을 활용하여 삭제하고하는 인덱스 전달
+
+  ```python
+  even_numbers = [2, 4, 6, 8]
+  even_numbers.pop(0)
+  even_numbers
+  # [4, 6, 8]
+  ```
+
+### @ 예제
+
+```python
+boxes = ['apple', 'banana']
+
+len(boxes)
+# 2
+boxes[1]
+# 'banana'
+boxes[1][0]
+# 'b'
+```
+
+## 🫠 None
+
+### @ 정의
+
+- 파이썬 자료형 중 하나
+
+- 값이 없음을 표현하기 위해 존재
+
+- 반환 값이 없는 함수에서 사용
+
+  ```python
+  print(type(None))
+  # <class 'NoneType'>
+  a = None
+  print(a)
+  # None
+  ```
