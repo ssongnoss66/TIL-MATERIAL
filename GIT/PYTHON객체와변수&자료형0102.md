@@ -257,7 +257,7 @@ num >= 100 and num % 3 ==1
     여러 줄을 사용할 때도 편리''')
     ```
 
-![인덱싱](https://user-images.githubusercontent.com/121418205/210191425-7bef08bc-11e8-41c7-9eaf-c5cfccbbff30.jpg)
+<img width="950" alt="인덱싱(2)" src="https://user-images.githubusercontent.com/121418205/210196168-6a3a0b9c-469d-4579-a14f-3bdc7745a403.png">
 
 ### @ 인덱싱
 

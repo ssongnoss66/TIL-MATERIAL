@@ -1,3 +1,6 @@
+### 0102 TIL
+😶‍🌫️ Python 객체와 변수 / 자료형
+
 ### 1229 TIL
 😎 Branch & GitFlow
 
