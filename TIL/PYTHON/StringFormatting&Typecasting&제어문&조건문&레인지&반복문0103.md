@@ -9,12 +9,12 @@
   - %-formatting
 
     ```python
-    name = 'Kim'
+    name = "Kim"
     score = 4.5
 
-    print('Hello, %s' % name)
-    print('내 성적은 %d' % score)
-    print('내 성적은 %f' % score)
+    print("Hello, %s" % name)
+    print("내 성적은 %d" % score)
+    print("내 성적은 %f" % score)
 
     # Hello, Kim
     # 내 성적은 4
@@ -24,14 +24,14 @@
   - f-string
 
     ```python
-    name = 'Kim'
+    name = "Kim"
     score = 4.5
-    print(f'Hello, {name}! 성적은 {score}')
+    print(f"Hello, {name}! 성적은 {score}")
     # Hello, Kim! 성적은 4.5
 
     pi = 3.141592
-    print(f'원주율은 {pi:.3}. 반지름이 2일때 원의 넓이는 {pi*2*2}')
-    # '원주율은 3.14. 반지름이 2일때 원의 넓이는 12.566368'
+    print(f"원주율은 {pi:.3}. 반지름이 2일때 원의 넓이는 {pi*2*2}")
+    # 원주율은 3.14. 반지름이 2일때 원의 넓이는 12.566368
 
 ## 🧐 형 변환 (Typecasting)
 
@@ -102,9 +102,9 @@
 
       ```python
       if < expression >:
-          # Run this Code block
+        # Run this Code block
       else:
-          # Run this Code block
+        # Run this Code block
       ```
 
 - 예제 : 아래의 순서도 두개를 코드로 나타내세요
@@ -116,18 +116,18 @@
   ```python
   a = -10
   if a >= 0
-      print("양수")
+    print("양수")
   else:
-      print("음수")
+    print("음수")
   print(a)
   # 음수 
   # -10
 
   a = 10
   if a >= 0
-      print("양수")
+    print("양수")
   else:
-      print("음수")
+    print("음수")
   print(a)
   # 양수
   # 10
@@ -140,9 +140,9 @@
   ```python
   num = int(input())
   if num % 2 == 0:
-      print("짝수")
+    print("짝수")
   else:
-      print("홀수")
+    print("홀수")
   ```
 
 ### @ 복수 조건문
@@ -151,11 +151,11 @@
 
   ```python
   if < expression >:
-      # Code block
+    # Code block
   elif < expression >:
-      # Code block
+    # Code block
   else:
-      # Code block
+    # Code block
   ```
 
 - 실습 문제 : dust 값에 따라 등급을 출력하는 조건식 작성
@@ -165,13 +165,13 @@
     ```python
     mimun = int(input())
     if mimun > 150:
-        print("매우나쁨")
+      print("매우나쁨")
     elif mimun > 80
-        print("나쁨")
+      print("나쁨")
     elif mimun > 30
-        print("보통")
+      print("보통")
     else:
-        print("좋음")
+      print("좋음")
     print("미세먼지 확인 완료")
     
     # 굳이 mimun > 80 and mimun <= 150 으로 안하는 이유
@@ -186,11 +186,11 @@
 
   ```python
   if <expression>:
-      # Code block
-      if <expression>:
-        #Code block
+    # Code block
+    if <expression>:
+      #Code block
   else:
-      # Code block
+    # Code block
   ```
 
 - 실습 문제 : 300 넘을 때 '실외 활동 자제' 음수일 때 '잘못된 값' 출력
@@ -200,17 +200,17 @@
     ```python
     mimun = int(input())
     if mimun > 150:
-        print("매우나쁨")
-        if mimun > 300:
-          print("실외 활동 자제")
+      print("매우나쁨")
+      if mimun > 300:
+        print("실외 활동 자제")
     elif mimun > 80:
-        print("나쁨")
+      print("나쁨")
     elif mimun > 30:
-        print("보통")
+      print("보통")
     elif mimun > 0:
-        print("좋음")
+      print("좋음")
     else:
-        print("잘못된 값")
+      print("잘못된 값")
     ```
 
 ## 🙃 레인지
@@ -221,7 +221,7 @@
 
   - 기본형 *range(n)* ; 0부터 n-1까지의 숫자의 시퀀스
 
-  - 범위 지정 *range(n, m) ; n부터 m-1까지의 숫자의 시퀀스
+  - 범위 지정 *range(n, m)* ; n부터 m-1까지의 숫자의 시퀀스
 
   - 범위 및 스텝 지정 *range(n, m, s)* ; n부터 m-1까지 s만큼 증가시키는 숫자의 시퀀스
 
@@ -290,8 +290,8 @@
     sum = 0
     b = int(input())
     while a < b:
-        sum += a
-        a += 1
+      sum += a
+      a += 1
     print(sum)
     ```
 
@@ -305,7 +305,7 @@
 
       ```python
       for <변수명> in <iterable>:
-          # Code block
+        # Code block
       ```
 
   - 아래의 순서도를 코드로 나타내시오
@@ -315,7 +315,7 @@
       ```python
       fruits = ["딸기", "바나나", "키위", "사과"]
       for fruit in fruits:
-          print(fruit)
+        print(fruit)
       print("END")
       ```
   
@@ -324,10 +324,10 @@
     ```python
     chars = input()
     for char in chars:
-        print(char)
+      print(char)
 
     for i in range(len(chars)):
-        print(chars[i])
+      print(chars[i])
 
     # range 활용
     ```
@@ -339,20 +339,20 @@
     ```python
     n = 0
     while True:
-        if n ==3:
-            break
-        print(n)
-        n += 1
+      if n ==3:
+        break
+      print(n)
+      n += 1
 
     # 0
     # 1
     # 2
 
     for i in range(10)
-        if i > 1:
-            print("0과 1만 필요해!")
-            break
-        print(i)
+      if i > 1:
+        print("0과 1만 필요해!")
+        break
+      print(i)
 
     # 0
     # 1
@@ -363,9 +363,9 @@
 
     ```python
     for i in range(6):
-        if i % 2 == 0 :
-            contine
-        print(i)
+      if i % 2 == 0 :
+        contine
+      print(i)
 
     # 1
     # 3
@@ -379,20 +379,20 @@
 
     ```python
     for char in "apple":
-        if char == "b":
-            print("b!")
-            break
+      if char == "b":
+        print("b!")
+        break
     else:
-        print("b가 없습니다")
+      print("b가 없습니다")
 
     # b가 없습니다
 
     for char in "banana":
-        if char == "b":
-            print("b!")
-            break
+      if char == "b":
+        print("b!")
+        break
     else:
-        print("b가 없습니다")
+      print("b가 없습니다")
      # b!
      ```
 

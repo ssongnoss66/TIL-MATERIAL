@@ -1,5 +1,8 @@
+### 0103 TIL
+😗 String Formatting / Typecasting / 제어문 / 조건문 / 레인지 / 반복문
+
 ### 0102 TIL
-😶‍🌫️ Python 객체와 변수 / 자료형
+😶‍🌫️ 객체와 변수 / 자료형
 
 ### 1229 TIL
 😎 Branch & GitFlow
