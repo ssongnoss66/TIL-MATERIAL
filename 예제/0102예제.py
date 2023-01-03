@@ -1,3 +1,7 @@
+chars = input()
+for char in chars:
+    print(char)
+
 # 예제01
 number1 = 1
 number2 = number1 + 1
