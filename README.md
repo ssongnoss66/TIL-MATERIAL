@@ -1,3 +1,6 @@
+### 0104 TIL
+🤓 함수 / 내장 함수
+
 ### 0103 TIL
 😗 String Formatting / Typecasting / 제어문 / 조건문 / 레인지 / 반복문
 
