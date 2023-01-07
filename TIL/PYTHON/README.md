@@ -24,8 +24,32 @@
 - while 문 ; **종료조건에 해당하는 코드**를 통해
 - for 문 ; **순회 가능한 객체를 모두 순회 시** 종료
 
-@함수
+@ 함수
 - Abstraction & Decomposition ; 재사용성, 가독성, 생산성
 - **map(function, iterable)**
   1. 첫번째 인자로 *함수*를 받아서
   2. 두번째 인자인 *반복 가능한 객체*의 **모든 요소**에 적용
+
+@ 딕셔너리
+- 키값 쌍으로 이뤄진 모음
+- key를 순회하고 key를 통해 값을 활용
+- 추가 메서드 활용하여 순회 가능
+  - .items() ;(Key, value)의 튜플로 구성된 결과
+
+@ 파일 입출력
+- **open(file, mode="r", encoding=None)**
+
+@ JSON
+- 텍스트 <=> 언어별 데이터 타입
+- 활용
+  1. 객체를 JSON으로 변환
+    ```python
+    import json
+    x = [1, "simple", "list"]
+    json.dumps(x)
+    # "[1, "simple", "list"]
+    ```
+  2. JSON을 객체로 변환
+    ```python
+    x = json.load(f)
+    ```

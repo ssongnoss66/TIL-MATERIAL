@@ -142,7 +142,7 @@ list_variable = [0, 1, 2]
 
 try:
     number = 1
-    if number == 1
+    if number == 1:
         print(number)
 
 except:
