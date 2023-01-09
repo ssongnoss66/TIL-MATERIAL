@@ -36,7 +36,7 @@ for i in wordList:
         wordList.remove("e")
 
 for i in wordList:
-    print(i, end=" ")
+    print(i, end="")
 
 print("----------------------------------")
 
