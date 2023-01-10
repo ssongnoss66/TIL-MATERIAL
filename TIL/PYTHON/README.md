@@ -67,3 +67,36 @@
 
 @ 메서드
 > 타입.메서드()
+
+@ 사용자 정의 함수
+    ```python
+    def function(parameter):
+      return parameter
+  
+    function(argument)
+    ```
+- 값을 하나만 return / return과 동시에 실행 종료
+- argument
+  - positional arguments ; 위치에 따라 함수 내에 전달
+  - keyword arguments ; 변수의 이름으로 특정 argument 전달
+  - default arguments values ; 기본값 지정하여 함수 호출 시 argument 설정 X
+  - 정해지지 않은 개수의 arguments ; 튜플로 묶여 처리
+    ```python
+    def add(*args):
+      for arg in args:
+        print(arg)
+    add(2)
+    add(2, 3, 4, 5)
+    ```
+  -정해지지 않은 개수의 keyword arguments ; 딕셔너리로 묶여 처리
+    ```python
+    def family(**kwargs):
+      for k, v in kwargs:
+        print(k, ":", v)
+
+    family(father = "John", mother = "Jane")
+    ```
+- 객체 수명주기
+  - built-in scope ; 파이썬 실행 후 영원히
+  - global scope ; 모듈 호출 시 / 인터프리터 끝날 때까지
+  - local scope ; 함수 호출 시 생성 / 함수 종료될 때까지
