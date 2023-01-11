@@ -25,3 +25,9 @@
 - 문자열 앞에 f" 붙이면 f-string ; 중괄호 사용하면 f-string 안에 파이썬 표현식 삽입 가능
 
 - round() ; 인자값 없으면 (비어있으면) 소수 첫째 자리 반올림
+
+- 리스트 내장 메소드 ; "여기 들어간 걸 기준으로 구분".joint(리스트명)
+
+- dict.get(key, default=None) ; 딕셔너리 메소드, 딕셔너리에 키가 있으면 해당 키에 대한 값을 반환
+
+- tuple(list) ; list to tuple
