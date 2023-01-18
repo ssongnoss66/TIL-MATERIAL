@@ -47,9 +47,13 @@ print(" ".join(printLi))
 
 """2941 크로아티아 알파벳"""
 
-word = input()
+# my ver
+
+wordInput = input()
+word = wordInput
 cnt = 0
 cntLi = []
+
 for i in ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]:
     cnt += word.count(i)
     wordNew = word.replace(i, ".")
@@ -57,10 +61,36 @@ for i in ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]:
     
 print(cnt+len(word.replace(".", "")))
 
+# teammate ver
+
+wordInput = input()
+word = wordInput
+cnt = 0
+cntLi = []
+
+for i in ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]:
+    cnt += wordInput.count(i)
+    
+print(len(wordInput) - cnt)
+
+# teammate ver
+
+wordInput = input()
+word = wordInput
+cnt = 0
+cntLi = []
+
+croat = ['c=','c-','dz=','d-','lj','nj','s=','z=']
+cnt = 0
+for i in croat:
+    word = word.replace(i,"#")
+print(len(word))
+
 """10809 알파벳 찾기"""
 
-s = input()
+# my ver
 
+s = input()
 import string 
 alph = list(string.ascii_lowercase)
 alphLi = []
@@ -73,6 +103,13 @@ for i in alph:
 
 print(" ".join(alphLi))
 
+# teammate ver
+
+for i in alph:                      # 알파벳 순회
+    alphLi.append(s.find(i))        # 비워둔 리스트에 순회한 알파벳 (a, b, c ...)이 몇 개 있는지 반환 (find 매서드는 없으면 -1 반환)
+
+print(*alphLi)
+
 """
 import string 
 alph = list(string.ascii_lowercase)
@@ -83,3 +120,4 @@ for i in alph:
 
 # import string 
 # string.ascii_lowercase
+# .find()
