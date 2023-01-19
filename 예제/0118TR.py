@@ -25,13 +25,29 @@ for i in range(trial):
 # "".join(리스트명)
 
 """10988 펠린드롬"""
- 
+
+# 슬라이싱
+
 word = input()
 
 if word == word[::-1]:
     print(1)
 else:
     print(0)
+
+# while문
+
+word = input()
+
+while True:
+    if word[0] == word[len(word)-1]:
+        pass
+    else:
+        print("페린드롬 아님")
+        break
+    word = word.strip(word[0])
+    if len(word) == 1:
+        print("페린드롬 맞음")
 
 """17249 태보태보 총난타"""
 
