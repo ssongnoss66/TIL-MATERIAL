@@ -24,6 +24,8 @@ else:
 0.01달러 = 1센트 = 1페니
 """
 
+# myVer
+
 for i in range(int(input())):
     chng = int(input())
     q = chng // 25
@@ -34,12 +36,22 @@ for i in range(int(input())):
     p = chng % 5
     print(f"{q} {d} {n} {p}")
 
+# teamVer
+
+n = int(input())
+
+for _ in range(n):
+    money = int(input())
+    for i in [25, 10, 5, 1]:
+        print(money // i, end=' ')
+        money = money % i
+
 """1453 피시방 알바 https://www.acmicpc.net/problem/1453"""
 
-from collections import deque
+# myVer
 
 guestN = int(input())
-seatNum = deque(map(int, input().split()))
+seatNum = list(map(int, input().split()))
 seatStack = []
 rfs = 0
 
@@ -50,6 +62,13 @@ for i in seatNum:
         seatStack.append(i)
 
 print(rfs)
+
+# googleVer
+
+N = int(input())
+seats = list(map(int, input().split()))
+s = len(list(set(seats)))
+print(N - s)
 
 """10773 제로 https://www.acmicpc.net/problem/10773"""
 
@@ -98,8 +117,6 @@ prntLi.append(numLi[0])
 print(*prntLi)
 
 """9012 괄호 https://www.acmicpc.net/problem/9012"""
-
-from collections import deque
 
 for i in range(int(input())):
     stack = []
