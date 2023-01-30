@@ -45,3 +45,7 @@
 - import string > string.ascii_lowercase ; 알파벳 소문자 호출
 
 - 문자열.find() ; 있는건 찾아서 몇개있는지 반환, 없는건 -1 반환
+
+- abs() ; 절댓값
+
+- heapq.heappop(heap)[1] ; 리스트에서의 pop()과 마찬가지로 반환하고 "삭제"
