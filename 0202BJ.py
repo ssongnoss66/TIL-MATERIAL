@@ -1,5 +1,6 @@
 """1547 공 https://www.acmicpc.net/problem/1547"""
 
+# 공
 
 
 """5576 콘테스트 https://www.acmicpc.net/problem/5576"""
