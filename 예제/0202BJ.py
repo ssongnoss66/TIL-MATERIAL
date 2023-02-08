@@ -13,6 +13,7 @@ print(ballLi.index(0) + 1)
 
 # 리스트 자리바꾸기 ; 리스트[인덱스a], 리스트[인덱스b] = 리스트[인덱스b], 리스트[인덱스a]
 
+
 """5576 콘테스트 https://www.acmicpc.net/problem/5576"""
 
 import sys
