@@ -121,7 +121,6 @@ while True:
   
   print(count)
 
-
 # bfs
 
 from collections import deque
