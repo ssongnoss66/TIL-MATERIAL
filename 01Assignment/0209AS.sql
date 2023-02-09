@@ -42,7 +42,8 @@ SELECT
 FROM
 	employees
 ORDER BY
-	jobTitle DESC;
+	jobTitle DESC,
+    officeCode DESC;
 
 -- #6
 SELECT
@@ -69,9 +70,9 @@ SELECT
 	productCode,
     quantityInStock,
     buyPrice,
-    (quantityInStock * buyPrice)
+    quantityInStock * buyPrice
 FROM
 	products
 ORDER BY
-	(quantityInStock * buyPrice) DESC;
+	quantityInStock * buyPrice DESC;
 
