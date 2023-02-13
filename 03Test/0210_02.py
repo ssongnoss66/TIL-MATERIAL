@@ -3,14 +3,36 @@
 from sys import stdin as s
 input = open("/Users/e_o_n_l_a_/Desktop/패캠)TIL&MATERIAL/03Test/input.txt","rt").readline
 
+def dfs(start):
+    stack = [start]    
+    visited[start] = True               
 
+    while stack:
+        cur = stack.pop()              
+        for adj in rltnLi[cur]:
+            if not visited[adj]:
+                visited[adj] = True
+                stack.append(adj)
+    vstd = list(map(str, visited))
+    vstdSl = ("".join(s for s in vstd)).split("False")
+    cnt = 0
+    for i in vstdSl:
+        if len(i) > 0:
+            cnt += 1
+    return(cnt)      
 
 for i in range(1, int(input())+1):
-    print("---------------------------")
-    n, m = map(int, input().split())
-    rltnLi = [[] for _ in range(n+1)]
-    for j in range(m):
+    ppl, ntwrk = map(int, input().split())
+    rltnLi = [[] for _ in range(ppl + 1)]
+    visited = [False] * (ppl + 1)
+    for j in range(ntwrk):
         x, y = map(int, input().split())
         rltnLi[x].append(y)
-    print(rltnLi)
-    
+        rltnLi[y].append(x)
+    print(f"#{i} {dfs(1)}")
+
+"""
+[[], [2, 5], [1, 5], [4], [3, 6], [2, 1], [4]]
+---------------------------------------------
+[[], [2, 5], [1, 5, 4, 3], [4, 2], [3, 6, 5, 2], [2, 1, 4], [4]]
+"""

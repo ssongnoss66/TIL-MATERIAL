@@ -143,7 +143,7 @@
       orderdetails;
     ```
 
-## @ Sorting data
+### @ Sorting data
 
 - ORDER BY clause ; 조회 결과의 레코드 정렬
 
