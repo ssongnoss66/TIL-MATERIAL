@@ -15,7 +15,7 @@ def dfs(x, y):
         if 0 <= nx < n and 0 <= ny < n:
             if mt[nx][ny] >= mt[x][y] - k:
                 cnt += 1
-                print(f"x{x} y {y} nx {nx} ny{ny} mt[nx][ny] {mt[nx][ny]} k {k} cnt {cnt}")
+                # print(f"x{x} y {y} nx {nx} ny{ny} mt[nx][ny] {mt[nx][ny]} k {k} cnt {cnt}")
                 dfs(nx, ny)
             if cnt > mx:
                 mx = cnt
@@ -26,7 +26,8 @@ for i in range(1, int(input())+1):
     mt = [list(map(int, input().split())) for _ in range(n)]
     hghst = max(map(max, mt))
     prnt = 0
-    print(f"hghst {hghst}")
+    # print(mt)
+    # print(f"hghst {hghst}")
     for x in range(n):
         for y in range(n):
             if mt[x][y] == hghst:

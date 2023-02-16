@@ -248,3 +248,20 @@
         ```
 
 ![JOIN정리](https://user-images.githubusercontent.com/121418205/218911425-5ed49551-b742-4eb6-a8b7-536ccd557d8b.jpg)
+
+> FULL OUTER JOIN
+
+  - 한쪽 테이블이 아닌 두 테이블 모두 이 빠진 형태로 데이터를 조회해야 할 때 사용
+
+    ```sql
+    SELECT
+      *
+    FROM
+      A
+    LEFT JOIN B
+    UNION
+    SELECT
+      *
+    FROM A
+    RIGHT JOIN B;
+    ```
