@@ -1,4 +1,4 @@
-"""반반 """
+"""반반 https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AXjS1GXqZ8gDFATi"""
 
 from sys import stdin as s
 input = open("/Users/e_o_n_l_a_/Desktop/패캠)TIL&MATERIAL/03Test/input.txt","rt").readline
