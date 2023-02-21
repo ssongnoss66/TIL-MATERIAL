@@ -78,16 +78,28 @@
 
           - 1:1 관계
 
+            ![1_1](https://user-images.githubusercontent.com/121418205/220255135-a2c9bf43-c176-484c-ba28-2e93ba867e89.jpg)
+
           - 1:N 관계
 
+            ![1_N](https://user-images.githubusercontent.com/121418205/220255131-063616e5-f62e-454d-b01a-ec9eaa842eb1.jpg)
+
           - M:N 관계
+
+            ![M_N](https://user-images.githubusercontent.com/121418205/220255129-99254c5a-09f4-42a8-b998-c5aa2c79a119.jpg)
 
         - Optionality (선택 가능성)
 
           - 1:N 관계라면 회원은 "필수" & 글은 "선택"
+
+            ![선택가능성](https://user-images.githubusercontent.com/121418205/220255124-5f4baaf4-c3d5-419b-9da3-1037cf22e860.jpg)
         
         > Cardinality와 Optionality을 조합
 
           - "하나의 회원은 여러 개의 글을 작성할 수 있고 하나의 글은 한 명의 회원이 작성할 수 있다"
 
           - 회원과 글의 관계는 **1:N** / 글은 **필수적**으로 회원과 연결 / 회원은 **선택적**으로 글과 연결
+    
+  - 작성 마무리
+
+    ![작성 마무리](https://user-images.githubusercontent.com/121418205/220255121-8c35afc5-b7a2-4ca3-b1fc-81f13ab64b8e.jpg)
