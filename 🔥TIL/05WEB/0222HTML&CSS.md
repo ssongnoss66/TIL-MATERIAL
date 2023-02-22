@@ -220,7 +220,7 @@
 
 ### 3.2 Select elements
 
-- CSS Selectors ; HTML 요소를 선택하여 스탕ㄹ 적용할 수 있도록 함
+- CSS Selectors ; HTML 요소를 선택하여 스타일을 적용할 수 있도록 함
 
 - 종류
 
