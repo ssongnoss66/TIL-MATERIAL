@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <style>
+    form {
+      margin: 30px;
+    }
+
+    .alert {
+      font-weight: 900;
+    }
+
+    .ID {
+      height: 70px;
+    }
+
+    .btn-warning {
+      border-radius: 100rem;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="alert alert-primary text-center fs-2" role="alert"><span class="align-text-bottom">로그인</span></div>
+    <div class="mb-3">
+      <input type="email" id="exampleInputEmail1" class="ID form-control" placeholder="Email address" aria-describedby="emailHelp">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Password</span>
+      <input type="password" id="exampleInputPassword1" class="form-control" placeholder="Password" aria-describedby="Password">
+    </div>
+    <div class="form-group">
+      <div class="mb-3 form-check">
+        <div class="checkbox text-center">
+          <label for="exampleCheck1">
+            <input type="checkbox" id="exampleCheck1"> Remember me
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid gap-3">
+      <button class="btn btn-outline-danger" type="button">로그인</button>
+      <button class="btn btn-success" type="button">회원가입</button>
+      <button class="btn btn-warning" type="button">돌아가기</button>
+    </div>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
