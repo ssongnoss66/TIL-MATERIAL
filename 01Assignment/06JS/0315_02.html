@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Basics</title>
+  <style>
+    .box {
+      height: 300px;
+      width: 300px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 1rem
+    }
+
+    .blue {
+      background-color: lightblue;
+    }
+
+    .green {
+      background-color: lightgreen;
+    }
+
+    .red {
+      background-color: lightcoral;
+    }
+
+    .black {
+      background-color: black;
+    }
+
+    .pink {
+      background-color: lightpink;
+    }
+
+    .is-active {
+      border: 5px dashed black;
+    }
+  </style>
+</head>
+
+<body>
+</body>
+
+<script>
+  //1.아래 배열의 각 요소를 텍스트를 가진 div 태그 요소를 생성 후 body 태그 요소의 자식 요소로 추가
+  fruits = ['red', 'blue', 'green', 'black', 'pink']
+
+  bodyTag = document.querySelector('body')
+  fruits.forEach(function(fruit) {
+    divTag = document.createElement('div')
+    divTag.textContent = `${fruit}`
+    bodyTag.appendChild(divTag)
+  })
+  console.log(bodyTag)
+
+  //2.모든 div 태그 요소를 선택하고, 각 요소에 box 클래스 추가
+  divTag = document.querySelectorAll('div')
+  divTag.forEach(function(div) {
+    div.classList.add('box')
+  })
+
+  //3.모든 div 태그 요소를 선택하고, 각 요소의 텍스트 출력
+  divTag.forEach(function(div) {
+    console.log(div.textContent)
+  })
+
+  //4.모든 div 태그 요소를 선택하고, 각 요소에 해당 요소의 텍스트를 클래스로 추가
+  //e.g. 해당 요소의 텍스트가 "brown" 라면 해당 요소에 "brown" 클래스 추가
+  txt = document.createElement('txt')
+  divTag.forEach(function(div) {
+    txt = div.textContent
+    div.classList.add(txt)
+  })
+
+  //5.모든 div 태그 요소를 선택하고, 요소 중 텍스트가 red인 경우 is-active 클래스 추가
+  console.log(divTag)
+  console.log(divTag.type)
+  divTag.forEach(function(a) {
+    if (a.classList.contains('red')) {
+      a.classList.add('is-active')
+    }
+  })
+
+  //6.모든 div 태그 요소 삭제
+  divTag.forEach(function(a) {
+    a.remove()
+  })
+</script>
+
+</html>
