@@ -586,3 +586,70 @@
 
       console.log(doubleNumber) //[2, 4, 6]
     ```
+
+### @ 배열 정리
+
+- 배열의 본질은 객체
+
+- 배열의 요소를 대괄호 접근법을 사용해 접근하는건 객체 문법과 같음
+
+- 다만 배열의 키는 **숫자**
+
+- 숫자형 키를 사용함으로써 배열은 객체 기본 기능 이외에도 순서가 있는 컬렉션을 제어하게 해주는 특별한 메서드 제공
+
+## 😕 참고
+
+- 배열 순회 종합
+
+  ```html
+  <script>
+    const chars = ['a', 'b', 'c', 'd']
+
+    //for loop
+    for (let idx = 0; idx < chars.length: idx++) {
+      console.log(idx, chars[idx])
+    }
+
+    // for...of
+    for (const char of chars) {
+      console.log(char)
+    }
+
+    //forEach
+    chars.forEach((char, idx) => {
+      console.log(idx, char)
+    })
+  ```
+
+  ![배열순회종합](https://user-images.githubusercontent.com/121418205/225477624-d1d6e354-d987-43c4-bd45-2d4c92d4e30e.png)
+
+- 콜백함수 구조 사용하는 이유
+
+  - **"함수의 재사용성 측면"**
+
+    - 함수를 호출하는 코드에서 콜백 함수으 ㅣ동작을 자유롭게 변경 가능
+
+    - 예를 들어, map 함수는 콜백 함수를 인자로 받아 배열의 각 요소를 순회하며 콜백 함수 실행
+
+    - 이때, 콜백 함수는 각 요소를 변환하는 로직 담당하므로, map 함수를 호출하는 코드는 간결하고 가독성 높아짐
+
+  - **"비동기적 처리 측면"**
+
+    - setTimeout 함수는 콜백 함수를 인자로 받아 일정 시간 지난 후 실행됨
+
+    - 이때, 비동기적으로 콜백 함수를 실행하므로, 다른 코드 실행 방해 X
+
+      ```html
+      <script>
+        console.log('a')
+
+        setTimeout(() => {
+          console.log('b')
+        }, 3000)
+
+        console.log('c')
+
+        //a
+        //c
+        //b
+      ```
