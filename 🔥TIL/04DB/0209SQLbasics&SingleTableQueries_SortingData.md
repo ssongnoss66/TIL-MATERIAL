@@ -1,8 +1,6 @@
-# 0209 THU
+# 😶‍🌫️ SQL Basics
 
-## 😶‍🌫️ SQL Basics
-
-### @ Introduction
+## @ Introduction
 
 - SQL (Structure Query Language)
 
@@ -22,7 +20,7 @@
 
   - 각 SQL Statements 끝에는 세미콜론(;) 필요 ; 각 SQL Statements 구분하는 방법
 
-### @ SQL Statements
+## @ SQL Statements
 
 - SQL 언어를 구성하는 가장 기본적인 코드 블록
 
@@ -57,7 +55,7 @@
 
     - 키워드 ; COMMIT, ROLLBACK, GRANT, REVOKE
 
-### @ 용어 정리
+## @ 용어 정리
 
 - Query
 
@@ -73,9 +71,9 @@
 
   - 모든 RDBMS에서 SQL 표준을 지원하나 RDBMS별로 독자적인 기능에 따라 표준 벗어나는 문법 존재
 
-## 😕 SQL Single Table Queries
+# 😕 SQL Single Table Queries
 
-### @ Querying data
+## @ Querying data
 
 - SELECT statement ; 테이블에서 데이터를 조회
 
@@ -143,7 +141,7 @@
       orderdetails;
     ```
 
-### @ Sorting data
+## @ Sorting data
 
 - ORDER BY clause ; 조회 결과의 레코드 정렬
 

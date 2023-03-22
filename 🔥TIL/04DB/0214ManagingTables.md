@@ -1,12 +1,10 @@
-# 0214 TUE
+# 🥲 Managing Tables
 
-## 🥲 Managing Tables
-
-### @ Introduction
+## @ Introduction
 
 DDL (Data Definition Language) ; 데이터의 기본 구조 및 형식 변경 (keyword ; CREATE, DROP, ALTER)
 
-### 1. Create a table
+## 1. Create a table
 
 - **CREATE TABLE** statement ; 테이블 생성
 
@@ -81,7 +79,7 @@ DDL (Data Definition Language) ; 데이터의 기본 구조 및 형식 변경 (k
 
       - 기본적으로 NOT NULL 제약 조건 포함
 
-### 2. Delete a table
+## 2. Delete a table
 
 - **DROP TABLE** statement ; 테이블 삭제
 
@@ -99,7 +97,7 @@ DDL (Data Definition Language) ; 데이터의 기본 구조 및 형식 변경 (k
     DROP TABLE examples;
     ```
 
-### 3. Modifying table fields
+## 3. Modifying table fields
 
 - **ALTER TABLE** statement ; 테이블 필드 조작 (생성, 수정, 삭제)
 
@@ -229,13 +227,13 @@ DDL (Data Definition Language) ; 데이터의 기본 구조 및 형식 변경 (k
 
   - 값이 없다는 표현을 테이블에 기록하는 것은 0이나 빈 문자열 등을 사용하는 것으로 대체
 
-## 🥸 Modifying Data
+# 🥸 Modifying Data
 
-### @ Introduction
+## @ Introduction
 
 DML (Data Manipulation Language) ; 데이터 조작 (추가, 수정, 삭제) (keyword ; INSERT, UPDATE, DELETE)
 
-### 1. Insert data into table
+## 1. Insert data into table
 
 - **INSERT** statement ; 테이블 레코드 삽입
 
@@ -281,7 +279,7 @@ DML (Data Manipulation Language) ; 데이터 조작 (추가, 수정, 삭제) (ke
 
       - CURDATE() ; 현재 날짜 반환 (MySQL 제공 Date Functions 중 하나)
   
-### 2. Update data in table
+## 2. Update data in table
 
 - **UPDATE** statement ; 테이블 레코드 수정
 
@@ -332,7 +330,7 @@ DML (Data Manipulation Language) ; 데이터 조작 (추가, 수정, 삭제) (ke
 
       - REPLACE() ; 지정된 문자열 변경 (MySQL 제공 String Functions 중 하나)
 
-### 3. Delete data from table
+## 3. Delete data from table
 
 - **DELETE** statement ; 테이블 레코드 삭제
 

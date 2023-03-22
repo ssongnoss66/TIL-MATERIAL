@@ -1,12 +1,10 @@
-# 0213 THU
+# 😏 SQL Single Table Queries
 
-## 😏 SQL Single Table Queries
-
-### @ Introduction
+## @ Introduction
 
 **DQL (Data Query Language) ; 데이터 검색 (SQL keyword ; SELECT)**
 
-### @ Filtering data
+## @ Filtering data
 
 - 데이터를 필터링하여 중복 제거, 조건 설정 등 SQL Query를 제어하기
 
@@ -275,7 +273,7 @@
 
     - Logical ; 논리 연산자 (AND(&&), OR(::), NOT(!))
 
-### @ Grouping data
+## @ Grouping data
 
 - GROUP BY clause ; 레코드를 그룹화하여 요약본 생성 with 집계 함수 (Aggregation Functions)
 

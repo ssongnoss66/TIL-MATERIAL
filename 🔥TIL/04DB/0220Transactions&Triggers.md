@@ -1,6 +1,4 @@
-# 0220 MON
-
-## 🤓 Transactions
+# 🤓 Transactions
 
 - (모두 성공 혹은 모두 실패하는) 여러 쿼리문을 묶어서 하나의 작업처럼 처리하는 방법
 
@@ -71,7 +69,7 @@
     SELECT * FROM users;
     ```
 
-## 🫢 Triggers
+# 🫢 Triggers
 
 - (INSERT, UPDATE, DELETE 등) 특정 이벤트에 대한 응답으로 자동으로 실행되는 것 
 

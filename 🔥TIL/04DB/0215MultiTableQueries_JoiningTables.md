@@ -1,8 +1,6 @@
-# 0215 WED
+# 🙃 SQL - Multi Table Queries
 
-## 🙃 SQL - Multi Table Queries
-
-### @ Introduction to Join
+## @ Introduction to Join
 
 - 커뮤니티 게시판에서 권미자가 작성한 모든 게시글 조회하기 위해서
 
@@ -26,7 +24,7 @@
     
     - 테이블 분리 시 관리 용이 but **다른 테이블과 연결지어 출력**해야 함
 
-### @ Joining Tables ; **JOIN** clause
+## @ Joining Tables ; **JOIN** clause
 
 - 둘 이상의 테이블에서 데이터를 검색하는 방법
 

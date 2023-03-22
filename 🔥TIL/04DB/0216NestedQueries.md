@@ -1,8 +1,6 @@
-# 0216 THU
+# 😀 Introduction to Subquery
 
-## 😀 Introduction to Subquery
-
-### @ subquery
+## @ subquery
 
 - "A query inside a query" ; 단일 쿼리문에 여러 테이블의 데이터를 결합하는 방법
 
@@ -97,7 +95,7 @@
 
       - AS findName ; FROM 절에서 사용하는 subquery는 별도의 파생된 테이블로 간주 > MySQL에서는 반드시 별칭 지정 필요
 
-### @ EXISTS operator
+## @ EXISTS operator
 
 - 쿼리 문에서 반환된 레코드의 존재 여부 확인
 
@@ -144,9 +142,9 @@
     );
     ```
 
-## 😫 Conditional Statements
+# 😫 Conditional Statements
 
-### @ CASE statement
+## @ CASE statement
 
 - SQL 문에서 조건문을 구성
 

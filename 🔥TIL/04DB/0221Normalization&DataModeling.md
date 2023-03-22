@@ -1,6 +1,4 @@
-# 0221 TUE
-
-## 😛 Normalization 정규화
+# 😛 Normalization 정규화
 
 - RDB 설계 단계에서 중복 최소화하여 데이터 **구조화**하는 과정
 
@@ -38,7 +36,7 @@
 
       ![제3정규화](https://user-images.githubusercontent.com/121418205/220217579-c2cfa8d2-9108-48f3-8a40-954971ce2e80.jpg)
 
-## 😗 Data Modeling
+# 😗 Data Modeling
 
 - 데이터베이스 시스템을 시각적으로 표현하는 프로세스 ; for 데이터 유형, 데이터 간의 관계 및 분석 등을 통해 비즈니스 요구사항을 만들어 낼 수 있도록 도움
 

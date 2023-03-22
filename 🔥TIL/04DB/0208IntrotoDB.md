@@ -1,8 +1,6 @@
-# 0208 WED
+# 🫠 Intro
 
-## 🫠 Intro
-
-### @ Why Database
+## @ Why Database
 
 - 데이터
 
@@ -24,7 +22,7 @@
 
     - 정확성 ; 데이터 변경 시 여러 시트에 분산되어 있다면 변경에 누락 및 추가 문제 발생 가능
 
-### @ What is Database
+## @ What is Database
 
 - 데이터베이스 ; 체계적인 데이터 모음 > 데이터를 저장하고 조작하는 역할
 
@@ -32,9 +30,9 @@
 
 - **CRUD (Create Read Update Delete)**
 
-## 🧐 The Relation
+# 🧐 The Relation
 
-### @ Relational Database
+## @ Relational Database
 
 - 관계형 데이터베이스 ; 데이터 간에 **관계**가 있는 데이터 항목들의 모음
 
@@ -72,7 +70,7 @@
 
   - Foreign Key ; 테이블의 필드 중 다른 테이블의 레코드를 식별할 수 있는 키 / 각 레코드에서 서로 다른 테이블 간의 **관계를 만드는 데** 사용
 
-### @ RDBMS
+## @ RDBMS
 
 - DBMS (Database Management System) ; 데이터베이스를 관리하는 소프트웨어 프로그램
 
