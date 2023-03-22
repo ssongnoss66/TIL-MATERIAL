@@ -1,6 +1,4 @@
-# 0306 MON
-
-## 😏 Bootstrap
+# 😏 Bootstrap
 
 - Bootstrap ; 프론트엔드 라이브러리 / **반응형 웹  디인 & CSS 및 JS 기반의 컴포넌트와 스타일 제공
 
@@ -33,9 +31,9 @@
     <p class="mt-5">Hello, world!<p>
     ```
 
-## 😝 Typography 및 Color
+# 😝 Typography 및 Color
 
-### @ Typography
+## @ Typography
 
 - Typography ; 문서 상 제목, 본문 텍스트, 목록
 
@@ -101,7 +99,7 @@
 
   ![List](https://user-images.githubusercontent.com/121418205/223002017-add3b270-7508-4fed-ae36-f29cb46f6850.png)
 
-### @ Bootstrap Color system
+## @ Bootstrap Color system
 
 - Bootstrap Color system ; Bootstrap이 지정하고 제공하는 색상 시스템
 
@@ -133,7 +131,7 @@
 
   ![BackgroundColor](https://user-images.githubusercontent.com/121418205/223002495-22c8eb23-290b-49b2-8a57-66bfbb0c6d66.png)
 
-### @ Bootstrap 실습
+## @ Bootstrap 실습
 
 - 너비와 높이가 각각 200px인 정사각형 작성 (너비와 높이 제외 모두 bootstrap으로 작성)
 
@@ -163,7 +161,7 @@
   <img width="239" alt="실습" src="https://user-images.githubusercontent.com/121418205/223006011-f6349bdd-af05-43e0-a6d2-790fb71f2c8f.png">
 
 
-## 😃 Component
+# 😃 Component
 
 - Bootstrap Component ; Bootstrap에서 제공하는 **UI 관련 요소 (버튼, 폼, 카드, 드롭다운, 네비게이션 바 등) > 일관된 디자인, 쉬운 프로토타입 제작 및 사용자 경험**
 
@@ -279,7 +277,7 @@
 
   ![navbar](https://user-images.githubusercontent.com/121418205/223005993-4031211c-a96c-4c16-bee2-397363e40fdb.png)
 
-## 🤔 참고
+# 🤔 참고
 
 - CND (Content Delivery Network)
 

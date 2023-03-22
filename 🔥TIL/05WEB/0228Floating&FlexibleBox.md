@@ -1,8 +1,6 @@
-# 0228 TUE
+# 😎 Web ; Floating for CSS layout
 
-## 😎 Web ; Floating for CSS layout
-
-### @ CSS Float
+## @ CSS Float
 
 - 요소를 **띄워서** 텍스트 및 인라인 요소가 그 주위를 감싸도록 하는 배치 ; 왼쪽 혹은 오른쪽으로 띄워 Normal flow에서 벗어남
 
@@ -40,9 +38,9 @@
   </body>
   ```
 
-## 🤯 Web ; Flexible box for CSS layout
+# 🤯 Web ; Flexible box for CSS layout
 
-### @ CSS Flexbox
+## @ CSS Flexbox
 
 - 요소를 행과 열 형태로 배치하는 **1차원** 레이아웃 방식
 
@@ -357,7 +355,7 @@
 
   ![반응형레이아웃](https://user-images.githubusercontent.com/121418205/222131720-fd5f68d5-84ae-46c8-8e50-3a84c9f9a9e3.png)
 
-### @ 참고
+## @ 참고
 
 - flex-direction
 

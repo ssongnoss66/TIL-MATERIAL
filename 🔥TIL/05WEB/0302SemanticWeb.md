@@ -1,10 +1,8 @@
-# 0302 THU
-
-## 😁 Web - Semantic Web
+# 😁 Web - Semantic Web
 
 - 웹 데이터를 의미론적으로 표현하고 연결하는 개념 ; 컴퓨터가 데이터 내용과 문맥을 더 효율적으로 이해하고 지능적으로 활용할 수 있도록!
 
-## 1. Semantics in HTML
+# 1. Semantics in HTML
 
 - "이 페이지의 최상위 제목"
 
@@ -78,9 +76,9 @@
   </footer>
   ```
 
-## 2. Semantics in CSS
+# 2. Semantics in CSS
 
-### @ oocss 
+## @ oocss 
 
 - Object-Oriented CSS ; 객체 지향적 접근법을 적용하여 CSS를 구성하는 방법론
 
@@ -145,7 +143,7 @@
   </body>
   ```
 
-### @ BEM
+## @ BEM
 
 - Block Element Modifier ; 블록, 요소, 수정자 사용해 클래스 이름을 구조화하는 방법론
 
@@ -222,7 +220,7 @@
   </body>
   ```
 
-## 참고
+# 참고
 
 - 의미론적 마크업의 이점
 

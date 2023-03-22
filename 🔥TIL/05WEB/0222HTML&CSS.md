@@ -1,6 +1,4 @@
-# 0222 WED
-
-## 😏 1. Introduction of Web page
+# 😏 1. Introduction of Web page
 
 - Web ; "Web site"와 "Web page"를 포함하는 상위 개념
 
@@ -14,9 +12,9 @@
 
   - Javascript "Behaviour"
 
-## 😝 2. Structuring the Web
+# 😝 2. Structuring the Web
 
-### 2.1 Introduction to HTML
+## 2.1 Introduction to HTML
 
 - HTML ; HyperText Markup Language 웹 페이지의 의미와 구조를 정의하는 언어
 
@@ -40,7 +38,7 @@
     <p>Hyper Text란 기존의 선형적인 텍스트가 아닌 비선형적으로 이루어진 텍스트를 의미하며, 이는 인터넷의 등장과 함께 대두되었다. 기본적으로 Hyper Link를 통해 텍스트를 이동한다.</p>
     ```
 
-### 2.2 Structure of HTML
+## 2.2 Structure of HTML
 
 - Element
 
@@ -111,7 +109,7 @@
   </html>
   ```
 
-### 2.3 Text Structure
+## 2.3 Text Structure
 
 - HTML의 주요 목적 중 하나는 텍스트 구조와 의미를 제공하는 것
 
@@ -148,9 +146,9 @@
   </body>
   ```
 
-## 😄 3. Styling the Web
+# 😄 3. Styling the Web
 
-### 3.1 Introduction to CSS
+## 3.1 Introduction to CSS
 
 - CSS (Cascading Style Sheet) ; 웹 페이지의 디자인과 레이아웃을 구성하는 언어
 
@@ -218,7 +216,7 @@
     }
     ```
 
-### 3.2 Select elements
+## 3.2 Select elements
 
 - CSS Selectors ; HTML 요소를 선택하여 스타일을 적용할 수 있도록 함
 
@@ -325,7 +323,7 @@
 
   ![CSSselectorsPractice](https://user-images.githubusercontent.com/121418205/220540966-d8ac332f-5c1a-4ccd-858c-1c1506958a2c.jpg)
 
-### 3.2 Cascade & Specificity
+## 3.2 Cascade & Specificity
 
 - 동일한 요소에 적용 가능한 같은 스타일을 두 가지 이상 작성했을 때 어떤 규칙이 이기는 지 결정하는 것
 
@@ -438,7 +436,7 @@
 
     ![상속practice](https://user-images.githubusercontent.com/121418205/220547108-87584b9e-653c-4600-8667-ec980fda1f38.jpg)
 
-## 🤔 참고
+# 🤔 참고
 
 - HTML 관련 사항
 

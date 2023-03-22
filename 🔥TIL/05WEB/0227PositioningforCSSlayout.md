@@ -1,10 +1,8 @@
-# 0227 MON
-
-## 😗 Web - Positioning for CSS layout
+# 😗 Web - Positioning for CSS layout
 
 - CSS Layout ; 각 요소의 위치와 크기를 조정하여 웹 페이지의 디자인을 결정하는 것 (Position)
 
-### @ Position
+## @ Position
 
 - CSS Position ; Normal Flow(CSS 적용하지 않았을 경우 웹페이지 요소가 기본적으로 배치되는 방향)에서 요소를 끄집어내서 다른 위치로 배치하는 것 
 
@@ -175,7 +173,7 @@
 
   ![positionpr2](https://user-images.githubusercontent.com/121418205/221459698-dc9c249a-9a93-4c7d-af2c-efa0f5853aa8.png)
 
-### @ z-index
+## @ z-index
 
 - 요소가 겹쳤을 때 어떤 요소 순으로 위에 나타낼 지 결정 ; z축 (스크린 표면으로부터 사용자 얼굴 쪽으로 향하는 라인) 기준 정렬
 
