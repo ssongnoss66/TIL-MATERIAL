@@ -1,8 +1,4 @@
-# 0315 WED
-
-# Functions
-
-## 😛 Functions
+# 😛 Functions
 
 - Function ; 참조 자료형에 속하며 모든 함수는 Function object
 
@@ -23,9 +19,9 @@
   </script>
   ```
 
-## 😗 함수의 정의
+# 😗 함수의 정의
 
-### @ 선언식과 표현식
+## @ 선언식과 표현식
 
 - 선언식 function declaration
 
@@ -133,7 +129,7 @@
         //2-2. return을 적지 않으려면 소괄호로 감싸야 함
         const returnObject2 = () => ({key: 'value'})
 
-### @ 매개변수
+## @ 매개변수
 
 - 기본 함수 매개변수 (Default function parameter) ; 값이 없거나 undefined가 전달될 경우 이름 붙은 매개변수를 기본값으로 초기화
 
@@ -187,7 +183,7 @@
 
 # Object
 
-## 🫠 Object
+# 🫠 Object
 
 - (plain) Object ; 키로 구분된 데이터 집합(data collection)을 저장하는 자료형
 
@@ -208,7 +204,7 @@
       }
     ```
 
-## 😎 객체의 속성
+# 😎 객체의 속성
 
 - Property 활용
 
@@ -272,7 +268,7 @@
     console.log(bag) //{연필: 5, myproperty: 'value'}
   ```
 
-## 🤯 객체와 함수
+# 🤯 객체와 함수
 
 - Method
 
@@ -370,7 +366,7 @@
       }
     ```
 
-## 🙂 참고
+# 🙂 참고
 
 - 유용한 객체 메서드  
 
@@ -425,7 +421,7 @@
 
 # Array
 
-## 🧐 Array
+# 🧐 Array
 
 - Object ; 키로 구분된 데이터 집합을 저장하는 자료형 > 이제는 **순서가 있는 collection**이 필요하다!
 
@@ -467,7 +463,7 @@
     }
   ```
 
-## 😶‍🌫️ 배열과 메서드
+# 😶‍🌫️ 배열과 메서드
 
 ![배열과메서드](https://user-images.githubusercontent.com/121418205/225227575-b009819a-d81e-41b1-8da1-96e644a887f4.png)
 
@@ -587,7 +583,7 @@
       console.log(doubleNumber) //[2, 4, 6]
     ```
 
-### @ 배열 정리
+## @ 배열 정리
 
 - 배열의 본질은 객체
 
@@ -597,7 +593,7 @@
 
 - 숫자형 키를 사용함으로써 배열은 객체 기본 기능 이외에도 순서가 있는 컬렉션을 제어하게 해주는 특별한 메서드 제공
 
-## 😕 참고
+# 😕 참고
 
 - 배열 순회 종합
 

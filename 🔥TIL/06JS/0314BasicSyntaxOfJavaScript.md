@@ -1,8 +1,6 @@
-# 0314 TUE
-
 - 코딩스타일 가이드 https://standardjs.com/rules-kokr.html
 
-## 🥰 변수
+# 🥰 변수
 
 - 식별자(변수면) 작성 규칙
 
@@ -130,7 +128,7 @@
         </script>
         ```
 
-## 🙃 데이터 타입
+# 🙃 데이터 타입
 
 - 원시 자료형 (Primitive type)
 
@@ -236,7 +234,7 @@
 
   - Objects (Obect, Array, Function)
 
-## 😀 연산자
+# 😀 연산자
 
 - 할당 연산자
 
@@ -360,7 +358,7 @@
   </script>
   ```
 
-## 😫 조건문
+# 😫 조건문
 
 - if ; 조건 표현식의 결과값을 boolean 타입으로 변환 후 참/거짓 판단
 
@@ -392,7 +390,7 @@
   </script>
   ```
 
-## 🤓 반복문
+# 🤓 반복문
 
 ![반복문 정리](https://user-images.githubusercontent.com/121418205/224907006-44680d81-3c1c-4316-8ef4-cf773f8990c9.png)
 
@@ -544,7 +542,7 @@
   </script>
   ```
 
-## 🫢 참고
+# 🫢 참고
 
 - 세미콜론 (semicolon)
 
