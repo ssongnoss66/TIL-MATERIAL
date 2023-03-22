@@ -1,6 +1,4 @@
-# 0321 TUE
-
-## 😎 django 프로젝트와 앱
+# 😎 django 프로젝트와 앱
 
 - django project ; 애플리케이션의 집합 (DB 설정, URL 연결, 전체 앱 설정 등 처리)
 
@@ -30,7 +28,7 @@
   ]
   ```
 
-## 🙂 django 디자인 패턴
+# 🙂 django 디자인 패턴
 
 - (소프트웨어) 디자인 패턴 ; 소프트웨어 설계에서 발생하는 문제 해결을 위한 일반적 해결책 (공통적 문제 해결하는데 쓰이는 형식화된 관행)
 
@@ -90,7 +88,7 @@
 
   ![DJANGO프로젝트](https://user-images.githubusercontent.com/121418205/226500325-bbd43335-c95d-4cee-86e1-28a5f5c07306.png)
 
-## 🥲 요청과 응답
+# 🥲 요청과 응답
 
 - URLs ; http://128.0.0.1:8000/**articles/** 로 요청이 왔을 때 **views** 모듈의 **index** 뷰 함수를 호출한다는 뜻
 
@@ -158,7 +156,7 @@
   - Template  articles/templates/articles/index.html
   ```
 
-## 🧐 참고
+# 🧐 참고
 
 - render 함수 ```render(request, template_name, context)```
 
