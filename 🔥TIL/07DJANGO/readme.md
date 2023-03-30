@@ -102,3 +102,121 @@
   ```
 
 https://wikidocs.net/71445#_6
+
+- HTTP request methods ; 데이터(리소스)에 어떤 요청(행동)을 원하는지를 나타내는 것
+
+  - 'POST' Method ; 특정 리소스에 변경사항을 만드는 요청 (POST로 데이터 전달하면 HTTP Body에 담겨 보내짐)
+  
+    - POST method 적용
+
+      ```python
+      # articles/views.py
+
+      def create(request):
+          ttl = request.POST.get('title')
+          cntnt = request.POST.get('content')
+          ...
+          return redirect('articles:detail', article.pk)
+      ```
+
+- DELETE
+
+  ```python
+  # articles/urls.py
+  urlpatterns = [
+      ...
+      path('<int:pk>/delete/', views.delete, name='delete')
+  ]
+
+  # articles/views.py
+  def delete(request, pk):
+      article = Article.objects.get(pk=pk)
+      article.delete()
+      return redirect('articles:index')
+  ```
+  ```html
+  <!--articles/detail.html-->
+  {% block content %}
+    ...
+    <form action="{% url 'articles:delete' article.pk %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="DELETE">
+    </form>
+  {% endblock content %}
+  ```
+
+- UPDATE
+
+  - edit ; 사용자의 입력을 받는 페이지 렌더링
+
+    - edit 로직 작성
+
+      ```python
+      # articles/urls.py
+      urlpatterns = [
+          ...
+          path('<int:pk>/edit/', views.edit, name='edit'),
+      ]
+
+      # articles/view.py
+      def edit(request, pk):
+          article = Article.objects.get(pk=pk)
+          context = {
+              'article': article,
+          }
+          return render(request, 'articles/edit.html', context)
+      <!--articles/edit.html-->
+      {% block content %}
+        <h1>Articles EDIT</h1>
+        <form action="#" method="POST">
+          {% csrf_token %}
+          <div>
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" value="{{ article.title }}">
+          </div>
+          <div>
+            <label for="content">Content: </label>
+            <input type="text" name="content" id="content" value="{{ article.content }}">
+          </div>
+          <input type="submit">
+        </form>
+        <hr>
+        <a href="{% url 'articles:index' %}">[BACK]</a>
+      {% endblock content %}
+      edit 페이지 이동하기 위한 하이퍼링크 작성
+      ```
+
+      ```html
+      <!--articles/detail.html-->
+      {% block content %}
+        <a href="{% url 'articles:edit' article.pk %}">[edit]</a>
+      {% endblock content %}
+      ```
+
+  - update ; 사용자가 입력한 데이터 받아 DB에 저장
+
+    - update 로직 작성
+
+      ```python
+      # articles/urls.py
+      urlpatterns = [
+          ...,
+          path('<int:pk>/update/', views.update, name='update')
+      ]
+
+      # articles/view.py
+      def update(request, pk):
+          article = Article.objects.get(pk=pk)
+          article.title = request.POST.get('title')
+          article.content = request.POST.get('content')
+          article.save()
+          return redirect('articles:detail', article.pk)
+      ```
+
+      ```html
+      <!--articles/edit.html-->
+      {% block content %}
+        <form action="{% url 'articles:update' article.pk %}" method="POST">
+          ...
+      {% endblock content %}
+      ```
