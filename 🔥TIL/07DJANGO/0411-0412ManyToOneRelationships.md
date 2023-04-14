@@ -586,6 +586,11 @@
 
     ```html
     <!--articles/detail.html-->
+    {% for comment in comments %}
+      <li>댓글 {{ comment.user }}: {{comment.content }}
+        ...
+      </li>
+    {% endfor %}
     ```
 
 - Comment DELETE
