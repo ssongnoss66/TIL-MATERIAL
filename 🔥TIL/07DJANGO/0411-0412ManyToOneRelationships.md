@@ -360,3 +360,270 @@
   - 일반적으로 댓글 수정은 수정 페이지 이동 없이 현재 페이지에서 댓글 작성 Form 부분만 변경되어 수정
 
   - 페이지 일부 내용만 업데이트 하는 것은 JS 영역
+
+# 🥲 Article & User
+
+- Article(N) - User(1) ; 0개 이상의 게시글은 1개의 회원에 의해 작성될 수 있음
+
+## @ 모델 관계 설정
+
+- User 외래 키 정의
+
+  ```python
+  # articles/modesl.py
+  from django.conf import settings
+
+  class Article(models.Model):
+      user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+      ...
+  ```
+
+- User 모델을 참조하는 2가지 방법
+
+  - get_user_model() ; 반환 값 'User Object' (객체) > **models.py가 아닌 다른 모든 곳에서 참조할 때**
+
+  - settings.AUTH_USER_MODEL ; 반환 값 'accounts.User' (문자열) > **models.py의 모델 필드에서 참조할 때**
+
+- Migrations 진행
+
+  ```
+  # terminal
+  python manage.py makemigrations
+
+  You are trying to add a non-nullable field 'user' to article without a default; we can't do that (the database needs something to populate existing rows).
+  Please select a fix:
+    1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+    2) Quit, and let me add a default in models.py
+  Select an option:
+  ```
+
+  - 기본적으로 모든 컬럼은 NOT NULL 제약조건 있기 때문에 데이터 없이는 새로 추가되는 외래 키 필드 user_id 생성 X
+
+  - 기본값 어떻게 작성할 것인지 선택 > 1 입력 후 Enter 진행
+
+  ```
+  # terminal
+  Select an option: 1
+  Please enter the default value now, as valid Python
+  The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+  Type 'exit' to exit this prompt
+  >>> 1
+
+  python manage.py migrate
+  ```
+
+  - article의 user_id에 어떤 데이터 넣을 것인지 직접 입력해야 함 > 1 입력 후 Enter 진행
+
+  - 기존에 작성된 게시글 있다면 1번 회원이 작성한 것으로 처리됨
+
+  - migrations 파일 생성 후 migrate 진행
+
+## @ CRUD 구현
+
+- Article CREATE
+
+  1. ArticleForm 출력 확인
+
+    ![ArticleForm 출력 확인](https://user-images.githubusercontent.com/121418205/231941593-82d9e294-d393-4da9-8811-6c500706aa7f.png)
+
+  2. ArticleForm 출력 필드 수정
+
+    ```python
+    # articles/forms.py
+    class ArticleForm(forms.ModelForm):
+      class Meta:
+          model = Article
+          fields = ('title', 'content',)
+    ```
+
+  3. 게시글 작성 시 user_id 필드 데이터 누락되어 에러 발생 
+  
+    ```
+    IntegrityError at /articles/create/
+    NOT NULL constraint failed: articles_article.user_id)
+    ```
+
+  4. 게시글 작성 시 작성자 정보가 함께 저장될 수 있도록 save의 commit 옵션 활용
+
+    ```python
+    # articles/views.py
+    @login_required
+    def create(request):
+        if request.method == 'POST':
+            form = ArticleForm(request.POST, request.FILES)
+            if form.is_valid():
+                article = form.save(commit=False)
+                article.user = request.user
+                article.save()
+                return redirect('articles:detail', article.pk)
+        else:
+            ...
+    ```
+
+  5. 게시글 작성 후 테이블 확인
+
+    <img width="1688" alt="게시글 작성 후 테이블 확인" src="https://user-images.githubusercontent.com/121418205/231942414-948adff4-b78d-4eab-b819-fe9f72b3a02b.png">
+
+- Article READ
+
+  1. index 템플릿과 detail 템플릿에서 각 게시글의 작성자 출력 및 확인
+
+    ```html
+    <!--articles/index.html-->
+    {% for article in articles %}
+      <p>{{ article }}</p>
+      <p>작성자 : {{ article.user }} </p>
+      <p>글 번호: {{ article.pk }}</p>
+      <p>글 제목:<a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a></p>
+    {% endfor %}
+
+    <!--articles/detail.html-->
+    <h3>{{ article.pk }}번째 글</h3>
+    <hr>
+    <p>작성자: {{ article.user }}</p>
+    <p>제목: {{ article.title }}</p>
+    <p>내용: {{ article.content }}</p>
+    <p>댓글 목록</p>
+    ```
+
+- Article UPDATE
+
+  1. 수정 요청하려는 사람과 게시글 작성한 사람 비교하여 본인 게시글만 수정할 수 있도록 함
+
+    ```python
+    # articles/views.py
+    @login_required
+    def update(request, pk):
+        article = Article.objects.get(pk=pk)
+        if request.user == article.user:    # 수정요청한 사람 == 게시글 작성자라면
+            if request.method == 'POST':
+                form = ArticleForm(request.POST, request.FILES, instance=article)
+                if form.is_valid():
+                    form.save()
+                    return redirect('articles:detail', article.pk)
+            else:
+                form = ArticleForm(instance=article)
+        else:                               # 같은 사람 아니면 초기화면으로 돌아가기
+            return redirect('articles:index')
+        context = {
+            'article': article,
+            'form': form,
+        }
+        return render(request, 'articles/update.html', context)
+    ```
+
+  2. 해당 게시글의 작성자가 아니라면, 수정/삭제 버튼 출력하지 않도록 함
+
+    ```html
+    <!--articles/detail.html-->
+    {% if request.user == article.user %}
+      <a href="{% url 'articles:update' article.pk %}" class="btn btn-secondary">EDIT</a>
+      <form action="{% url 'articles:delete' article.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="DELETE" class="btn btn-secondary">
+      </form>
+    {% endif %}
+    ```
+
+- Article DELETE ; 삭제 요청하려는 사람과 게시글 작성한 사람 비교하여 본인 게시글만 삭제할 수 있도록 함
+
+    ```python
+    # articles/views.py
+    @login_required
+    def delete(request, pk):
+        article = Article.objects.get(pk=pk)
+        if request.user == article.user:      # 삭제요청한 사람 == 게시글 작성자라면
+            article.delete()
+        return redirect('articles:index')
+    ```
+
+# 😕 Comment & User
+
+- Comment(N) - User(1) ; 0개 이상의 댓글은 1개의 회원에 의해 작성될 수 있음
+
+## @ 모델 관계 설정
+
+- User 외래 키 정의
+
+  ```python
+  # articles/models.py
+  class Comment(models.Model):
+      ...
+      user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+      ...
+  ```
+
+- Migration 진행 ; 기존에 존재하던 테이블에 새로운 컬럼 추가 > migrations 파일 바로 생성 X
+
+## @ CRD 구현
+
+- Comment CREATE
+
+  1. 댓글 작성 시 user_id 필드 데이터 누락되어 에러 발생
+
+    ```
+    IntegrityError at /articles/1/comments/
+    NOT NULL constraint failed: articles_comment.user_id
+    ```
+
+  2. 댓글 작성 시 작성자 정보가 함께 저장될 수 있도록 save의 commit 옵션 활용
+
+    ```python
+    # articles/views.py
+    def comments_create(request, pk):
+        article = Article.objects.get(pk=pk)
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.article = article
+            comment.user = request.user
+            comment_form.save()
+            return redirect('articles:detail', article.pk)
+        ...
+    ```
+
+- Comment READ ; detail 템플릿에서 각 댓글의 작성자 출력 및 확인
+
+    ```html
+    <!--articles/detail.html-->
+    ```
+
+- Comment DELETE
+
+  1. 삭제 요청하려는 사람과 댓글 작성한 사람 비교하여 본인 댓글만 삭제할 수 있도록 함
+
+    ```python
+    # articles/views.py
+    def comments_delete(request, article_pk, comment_pk):
+        comment = Comment.objects.get(pk=comment_pk)
+        if request.user == comment.user:
+            comment.delete()
+        return redirect('articles:detail', article_pk)
+    ```
+
+  2. 해당 댓글 작성자 아니라면, 댓글 삭제 버튼 출력하지 않도록 함
+
+    ```html
+    <!--articles/detail.html-->
+    {% if request.user == comment.user %}
+      <form action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="DELETE" class="btn btn-dark"> 
+      </form>
+    {% endif %}
+    ```
+
+# 😏 참고
+
+- 인증된 사용자인 경우만 댓글 작성/삭제
+
+  ```python
+  # articles/views.py
+  @login_required
+  def comments_create(request, pk):
+      ...
+
+  @login_required
+  def comments_delete(request, article_pk, comment_pk):
+      ...
+  ```
