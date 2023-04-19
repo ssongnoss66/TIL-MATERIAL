@@ -466,7 +466,7 @@
     ]
 
     # accounts/views.py
-    from django.contrib.auth import login as auth_login, logout as get_user_model
+    from django.contrib.auth import get_user_model
 
     def profile(request, username):
         User = get_user_model()
