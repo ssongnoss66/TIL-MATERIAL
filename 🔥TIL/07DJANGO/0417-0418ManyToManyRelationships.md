@@ -453,3 +453,138 @@
       if article.like_users.filter(pk=request.user.pk).exists():
           ...
   ```
+
+- Profile 구현
+
+  1. 자연스러운 follow 흐름 위한 프로필 페이지 작성
+
+    ```python
+    # accounts/urls.py
+    urlpatterns = [
+        ...,
+        path('profile/<username>/', views.profile, name='profile'),
+    ]
+
+    # accounts/views.py
+    from django.contrib.auth import login as auth_login, logout as get_user_model
+
+    def profile(request, username):
+        User = get_user_model()
+        person = User.objects.get(username=username)
+        context = {
+            'person': person,
+        }
+        return render(request, 'accounts/profile.html', context)
+    ```
+
+  2. profile 템플릿 작성
+
+    ```html
+    <!--accounts/profile.html-->
+    {% block content %}
+      <h1>accounts PROFILE</h1>
+      <hr>
+      <h2>{{ person.username }}님의 프로필</h2>
+      <hr>
+      <h3>{{ person.username }}'s 게시글</h3>
+      {% for article in person.article_set.all %}
+        <div>{{ article.title }}</div>
+      {% endfor %}
+      <hr>
+      <h3>{{ person.username }}'s 댓글</h3>
+      {% for comment in person.comment_set.all %}
+        <div>{{ comment.content }}</div>
+      {% endfor %}
+      <hr>
+      <h3>{{ person.username}}'s 좋아요한 게시글</h3>
+      {% for article in person.like_articles.all %}
+        <div>{{ article.title }}</div>
+      {% endfor %}
+    {% endblock content %}
+    ```
+
+  3. Profile 템플릿으로 이동할 수 있는 하이퍼 링크 작성
+
+    ```html
+    <!--articles/index.html-->
+    {% block content %}
+      <h1>ARTICLES</h1>
+      <p>{{ articles }}</p>
+      <hr>
+      <a href="{% url 'accounts:profile' user.username %}">내 프로필</a>
+      {% for article in articles %}
+        <p>{{ article }}</p>
+        <p>작성자 : <a href="{% url 'accounts:profile' article.user.username %}">{{ article.user }}</a></p>
+        ...
+    {% endblock content %}
+    ```
+
+# 🫢 User & User
+
+- User(M) - User(N) ; 유저는 0명 이상의 다른 유저와 관련된다 > 유저는 다른 유저로부터 0개 이상의 팔로우를 받을 수 있고, 유저는 0명 이상의 다른 유저들에게 팔로잉 걸 수 있다
+
+- Follow 구현
+
+  1. ManyToManyField 작성 및 Migration 진행 후 중개테이블 필드 확인
+
+    ```python
+    # accounts/models.py
+    class User(AbstractUser):
+        followings = models.ManyToManyField('self', symmetrical=False, related_name='followers')
+    ```
+
+    <img width="995" alt="accounts중개테이블" src="https://user-images.githubusercontent.com/121418205/232943453-187931ef-77b4-4975-a6a5-5b8d77ca3aa9.png">
+
+  2. url 및 view 함수 작성
+
+    ```python
+    # accounts/urls.py
+    urlpatterns = [
+        ...,
+        path('<int:user_pk>/follow/', views.follow, name='follow'),
+    ]
+
+    # accounts/views.py
+    @login_required
+    def follow(request, user_pk):
+        User = get_user_model()
+        person = User.objects.get(pk=user_pk)
+        if person != request.user:
+            if person.followers.filter(pk=request.user.pk).exists():
+            # if request.user in person.followers.all():
+                person.followers.remove(request.user)
+            else:
+                person.followers.add(request.user)
+        return redirect('accounts:profile', person.username)
+    ```
+
+  3. 프로필 유저의 팔로잉, 팔로워 수 & 팔로우, 언팔로우 버튼 작성 > 팔로우 버튼 클릭 후 팔로우 버튼 변화 및 중개 테이블 데이터 확인
+
+    ```html
+    <!--accounts/profile.html-->
+    {% block content %}
+    {% load bootstrap5 %}
+      <h1>accounts PROFILE</h1>
+      <hr>
+      ...
+      <div>
+        <div>
+          팔로잉 : {{ person.followings.all|length }} / 팔로워 : {{ person.followers.all|length }}
+        </div>
+        {% if request.user != person %}
+        <div>
+          <form action="{% url 'accounts:follow' person.pk%}" method="POST">
+            {% csrf_token %}
+            {% if request.user in person.followers.all %}
+            <input type="submit" value="Unfollow">
+            {% else %}
+            <input type="submit" value="Follow">
+            {% endif %}
+          </form>
+        </div>
+        {% endif %}
+      </div>
+    {% endblock content %}
+    ```
+
+    <img width="893" alt="follow중개테이블" src="https://user-images.githubusercontent.com/121418205/232945225-b8f87c3c-3eb7-41b2-959d-6e5e444bcaa4.png">
