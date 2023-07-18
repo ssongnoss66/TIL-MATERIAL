@@ -36,6 +36,29 @@
 - 추가 메서드 활용하여 순회 가능
   - .items() ;(Key, value)의 튜플로 구성된 결과
 
+@ 에러와 예외
+- try except 예외 처리
+  ```python
+  # 에러 이름 알 때
+  try:
+      # 에러가 발생할 가능성이 있는 코드
+  except Exception: # 에러 종류
+      #에러가 발생 했을 경우 처리할 코드
+
+  # 에러 이름 모를 때
+  try:
+    # 에러가 발생할 가능성이 있는 코드
+  except Exception as ex: # 에러 종류
+      print('에러가 발생 했습니다', ex) # ex는 발생한 에러의 이름을 받아오는 변수
+  ```
+- raise로 예외를 발생시키면 raise 아래에 있는 코드는 실행되지 않고 바로 except로 넘어감
+- assert vs raise ; 둘 다 에러 발생을 알리고 프로그램 종료시킴
+  - assert ; ```__debug__``` 상수가 False라면 동작 X > debugging이나 test 성격이 강함 > 실제 서비스코드에서는 사용 지양
+  - raise ; 실제 서비스에게 상태를 알리는 목적일 때 사용
+    ```python
+    raise Exception # 에러 종류
+    ```
+
 @ 파일 입출력
 - **open(file, mode="r", encoding=None)**
 
@@ -67,6 +90,29 @@
 
 @ 메서드
 > 타입.메서드()
+- 클래스에 묶여서 클래스의 인스턴스와 관계되는 일을 하는 함수
+- 클래스 내부에 함수를 포함시킨 예
+  ```python
+  class Human( ):
+    '''인간'''
+    def create( name, weight ): # 다음 강의에서 자세히 설명
+        person = Human()
+        person.name = name
+        person.weight = weight
+        return person
+
+    def eat( self ):
+        self.weight += 0.1
+        print("{}가 먹어서 {}kg이 되었습니다".format(self.name, self.weight))
+
+    def walk( self ):
+        self.weight -= 0.1
+        print("{}가 걸어서 {}kg이 되었습니다".format(self.name, self.weight))
+
+  person = Human.create("철수", 60.5)
+  person.eat()    # self는 생략해도 알아서 전달되니까
+  ```
+- self ; 메소드의 첫번째 인자, 인스턴스의 매개변수 전달 시 self 매개변수 생략하고 전달
 
 @ 사용자 정의 함수
     ```python
@@ -101,16 +147,56 @@
   - global scope ; 모듈 호출 시 / 인터프리터 끝날 때까지
   - local scope ; 함수 호출 시 생성 / 함수 종료될 때까지
 
+@ 객체 지향 vs 절차 지향
+- 객체 지향 ; 여러 개의 독립된 객체들과 그 객체들 간의 상호작용으로 파악
+- 절차 지향 ; 데이터와 함수로 인한 변화
+
 @ 사용자 정의 클래스  
 - 객체는 모두 특정 타입의 인스턴스
 - 특징
-  - 클래스 ; **객체들의 분류**
-  - 인스턴스 ; **하나하나의 실체**
+  - 클래스 ; **객체들의 분류**, 함수나 변수들을 모아 놓은 집합체
+  - 인스턴스 ; **하나하나의 실체**, 클래스에 의해 생성된 객체 > 인스턴스 각자 자신의 값을 가지고 있다
+  ```python
+  list1 = [1, 2, 3]
+  list2 = [1, 2, 3]
+
+  if list1 is list1:
+      print("당연히 list1과 list1은 같은 인스턴스입니다.")
+
+  if list1 == list2:
+      print("list1과 list2의 값은 같습니다.")
+      if list1 is list2:
+          print("그리고 list1과 list2는 같은 인스턴스입니다.")
+      else:
+          print("하지만 list1과 list2는 다른 인스턴스입니다.")
+
+  # 출력 결과
+  # 당연히 list1과 list1은 같은 인스턴스입니다.
+  # list1과 list2의 값은 같습니다.
+  # 하지만 list1과 list2는 다른 인스턴스입니다.
+  ```
   - 속성(attribute) ; 특정 데이터 타입이나 클래스의 *객체*들이 가지게 될 *상태 또는 데이터*
   - 메소드 ; 특정 데이터 타입이나 클래스의 *객체*에 *공통 적용 가능*한 행위(함수)
 - 인스턴스
   - 인스턴스 변수 ; 인스턴스가 개인적으로 가지고 있는 속성, 생성자 메소드에서 self.으로 정의 > 생성된 이후 .으로 접근 및 할당
   - 인스턴스 메소드 ; 인스턴스 변수를 사용하거나 인스턴스 변수에 값을 설정하는 메소드, 호출 시 첫번 째 인자로 self 전달됨
+
+- 특수한 메소드
+  ```python
+  class Human( ):
+      '''인간'''
+      def __init__( self, name, weight ):
+          '''초기화 함수'''
+          self.name = name
+          self.weight = weight
+
+      def __str__( self )
+          '''문자열화 함수
+          return "{} ( 몸무게 {}kg )".format( self.name, self.weight )
+
+    person = Human( "사람", 60.5 ) # 초기화 함수 사용
+    print( person ) # 문자열화 함수 사용
+    ```
   - self ; 인스턴스 자기자신, 함수 정의 공간에서 이름붙이기 위해 사용
   - 생성자 메소드 ; 인스턴스 객체가 생성될 때 자동으로 호출되는 메소드, 인스턴스 생성 및 ```__init__``` 메소드 자동 호출
   - 소멸자 메소드 ; 인스턴스 객체가 소멸(파괴)되기 직전에 호출되는 메소드, ```__del__```
